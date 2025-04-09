@@ -1,0 +1,134 @@
+/* Global Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Smooth Gradient Background */
+body {
+    background: linear-gradient(120deg, #2c3e50, #4ca1af);
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+}
+
+/* Navigation Bar */
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    align-items: center;
+    padding: 15px 50px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.nav a:hover, .nav a.active {
+    border-bottom: 2px solid white;
+}
+
+/* Main Container */
+.homeContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh;
+}
+
+.homeContent h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.homeContent p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+    background: #1abc9c;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #16a085;
+}
+
+/* Upload Section */
+.uploadSection {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* File Input */
+input[type="file"] {
+    margin: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+}
+
+input[type="file"]::file-selector-button {
+    background: #3498db;
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #2980b9;
+}
+
+/* Video Preview */
+.videoPreview {
+    margin-top: 20px;
+}
+
+.videoPreview video {
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Background Decorations */
+.box {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.one {
+    top: 10vh;
+    left: 10vw;
+}
+
+.two {
+    bottom: 10vh;
+    right: 10vw;
+}

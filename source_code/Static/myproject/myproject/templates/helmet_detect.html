@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helmet Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function showCamera() {
+            document.getElementById("cameraFeed").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/helmet-detect" class="active">Helmet Detect</a>
+        <a href="#">About</a>
+    </div>
+
+    <h1 class="title">Helmet Detection System</h1>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <div class="main">
+        <!-- File Upload Section -->
+        <div class="uploadSection">
+            <h2>Upload Video</h2>
+            <form action="{{ url_for('helmet_detect') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="video" accept="video/*" id="videoInput">
+                <button type="submit" class="btn">Upload Video</button>
+            </form>
+        </div>
+
+        <!-- Live Camera Section -->
+        <div class="video-container">
+            <h2>Live Camera</h2>
+            <button onclick="showCamera()" class="btn">Connect to Camera</button>
+            <div id="cameraFeed" style="display: none;">
+                <img src="{{ url_for('video_feed') }}" width="500">
+            </div>
+        </div>
+
+        <!-- Uploaded Video Preview -->
+        {% if video_url %}
+        <div class="videoPreview">
+            <h2>Uploaded Video</h2>
+            <video width="500" controls>
+                <source src="{{ video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
